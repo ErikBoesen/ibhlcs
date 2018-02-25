@@ -1,3 +1,4 @@
+// Find product of largest pythagorean triple with a sum < LIMIT
 #include <stdio.h>
 #include <time.h>
 
