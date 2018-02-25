@@ -1,7 +1,5 @@
-// Count Lychrel numbers from 0 to RANGE
 #include <stdio.h>
 #include <math.h>
-#include <limits.h>
 
 #define RANGE 20000
 
@@ -17,7 +15,7 @@ int reverse(int x) {
 int is_palindrome(int x) { return reverse(x) == x; }
 
 int is_lychrel(int x) {
-    while (0 < x && x < INT_MAX) {
+    while (0 < x) {
         if (is_palindrome(x)) return 1;
         x += reverse(x);
     }
