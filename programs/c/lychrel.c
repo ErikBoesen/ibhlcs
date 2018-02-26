@@ -16,8 +16,19 @@ int is_palindrome(int x) { return reverse(x) == x; }
 
 int is_lychrel(int x) {
     while (0 < x) {
-        if (is_palindrome(x)) return 1;
+        if (is_palindrome(x)) {
+#ifdef DEBUG
+            printf("%d is a valid Lychrel number!\n", x);
+#endif
+            return 1;
+        }
+#ifdef DEBUG
+        printf("%d is not a palindrome, trying ", x);
+#endif
         x += reverse(x);
+#ifdef DEBUG
+        printf("%d\n", x);
+#endif
     }
     return 0;
 }
