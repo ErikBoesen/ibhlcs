@@ -3,11 +3,9 @@
 
 
 class School {
-private:
+public:
     unsigned short population;
     std::vector<Student> students;
-
-public:
     School(int population) {
         this->population = population;
         for (int i = 0; i < population; i++) {
