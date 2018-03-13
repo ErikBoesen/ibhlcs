@@ -1,8 +1,9 @@
 #include <iostream>
+#include <inttypes.h>
 
 using namespace std;
 
-void collatz(int x) {
+void collatz(uint64_t x) {
     if (x <= 1) {
         cout << x << endl;
         return;
@@ -11,7 +12,7 @@ void collatz(int x) {
 }
 
 int main() {
-    int num;
+    uint64_t num;
     while (true) {
         cout << "> ";
         cin >> num;
