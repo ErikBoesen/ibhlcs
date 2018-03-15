@@ -3,3 +3,6 @@ data_generator:
 
 nn:
 	g++ -o nn main.cpp
+
+clean:
+	rm -f nn data_generator
