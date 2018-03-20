@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <limits>
 
 class Node {
 public:
@@ -12,8 +13,46 @@ public:
     Graph(std::vector<Node> nodes) {
         this->nodes = nodes;
     }
+    std::vector<int> shortest_paths(int start) {
+        // Use Dijkstra's shortest paths algorithm to find the shortest distance from start to all other nodes.
+
+        std::vector<int> distances;
+        bool visited[this->nodes.size()];
+        for (int i = 0; i < this->nodes.size(); i++) {
+            distances.push_back(INT_MAX);
+            visited[i] = false;
+        }
+        distances[start] = 0;
+        visited[start] = true;
+
+        int current = start;
+        while (true) {
+            for (int i = 0; i < this->nodes.size(); i++) {
+    			if (current != i && !visited[i]) {
+    				int min = distances[current] + this->nodes[current].paths[i];
+    				if (min <= distances[i] && this->nodes[current].paths[i] > 0)
+    					distances[i] = min;
+    			}
+            }
+    		visited[current] = true;
+    		// Find the smallest unvisited node
+    		int smallest = INT_MAX;
+    		for (int i = 0; i < this->nodes.size(); i++) {
+    			if (!visited[i] && distances[i] < smallest) {
+    				smallest = distances[i];
+    				current = i;
+    			}
+            }
+            bool empty = true;
+            for (int i = 0; i < this->nodes.size(); i++)
+                if (!visited[i]) empty = false;
+    		if (empty) break;
+        }
+
+        return distances;
+    }
     int shortest_path(int start, int end) {
-        return 0;
+        return this->shortest_paths(start)[end];
     }
 };
 
