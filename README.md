@@ -1,7 +1,7 @@
 # ibhlcs
 Notes and programming assignments for IB HL Computer Science I and II (2017-2019).
 
-## Other work during IB HL CS
+## External repositories
 * [Junior Year IA](https://github.com/ErikBoesen/euler)
 * [IB Extended Essay](https://github.com/ErikBoesen/ee)
 
