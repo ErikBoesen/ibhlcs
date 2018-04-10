@@ -18,13 +18,13 @@ public class Golfer {
     }
     public Golfer(int[] scores) {
         Arrays.sort(scores);
-        handicap = getHandicap(scores);
+        handicap = calculateHandicap(scores);
         int score;
         String course;
     }
     public Golfer(String x, int[] scores) {
         Arrays.sort(scores);
-        handicap = getHandicap(scores);
+        handicap = calculateHandicap(scores);
         int score;
         String course;
         name = x;
@@ -32,9 +32,12 @@ public class Golfer {
     public String getName() {
         return name;
     }
-    public double getHandicap(int[] scores) {
+    private double calculateHandicap(int[] scores) {
         double sum = 0;
         for(int i = 0; i < 10 && i < scores.length; i++) sum += (scores[i] - 72);
         return (sum / (scores.length > 10 ? 10 : scores.length));
+    }
+    public double getHandicap() {
+        return this.handicap;
     }
 }
