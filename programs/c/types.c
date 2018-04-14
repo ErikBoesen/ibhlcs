@@ -18,10 +18,10 @@ int main() {
     printf("%s tiene %d años, y su numero es %ld.\n", erik.name, erik.age, erik.phone_number);
 
     int a = ATTEMPT;
+    printf("%d\n", a);
 
     bits b = {0, 0};
     for (int i = 0; i < 10; i++) {
-        printf("%d ", ++b.b);
+        printf("%d %d / ", b.a, ++b.b);
     }
-    printf("%d\n", a);
 }
