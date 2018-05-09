@@ -1,55 +1,57 @@
 #include <vector>
 #include <iostream>
+#include <iomanip>
 #include <cassert>
 #include "net.h"
 #include "reader.h"
 
 using namespace std;
 
-void showVectorVals(string label, vector<double> &v) {
-	cout << label << " ";
+void print_vector(vector<double> &v) {
+	cout << '[';
 	for (unsigned i = 0; i < v.size(); ++i) {
-		cout << v[i] << " ";
+		cout << v[i];
+		if (i != v.size() - 1) cout << " ";
 	}
-	cout << endl;
+	cout << ']';
 }
 int main() {
-	TrainingData trainData("trainingData.txt");
+	TrainingData reader("training_data.txt");
 	vector<unsigned> topology;
-	//topology.push_back(3);
-	//topology.push_back(2);
-	//topology.push_back(1);
 
-	trainData.getTopology(topology);
-	Net myNet(topology);
+	reader.getTopology(topology);
 
-	vector<double> inputVals, targetVals, resultVals;
-	int trainingPass = 0;
-	while (!trainData.isEof()) {
-		++trainingPass;
-		cout << endl << "Pass" << trainingPass;
+	Net network(topology);
 
+	vector<double> inputs, targets, results;
+
+	cout << fixed << setprecision(0);
+
+	for (int epoch = 0; !reader.isEof(); ++epoch) {
 		// Get new input data and feed it forward:
-		if(trainData.getNextInputs(inputVals) != topology[0])
-			break;
-		showVectorVals(": Inputs :", inputVals);
-		myNet.feedForward(inputVals);
+		if (reader.getNextInputs(inputs) != topology[0]) break;
+
+		network.feedForward(inputs);
 
 		// Collect the net's actual results:
-		myNet.getResults(resultVals);
-		showVectorVals("Outputs:", resultVals);
+		network.getResults(results);
 
-		// Train the net what the outputs should have been:
-		trainData.getTargetOutputs(targetVals);
-		showVectorVals("Targets:", targetVals);
-		assert(targetVals.size() == topology.back());
+		// Show correct outputs
+		reader.getTargetOutputs(targets);
+		assert(targets.size() == topology.back());
 
-		myNet.backProp(targetVals);
+		// Backpropogate!
+		network.backProp(targets);
 
-		// Report how well the training is working, average over recnet
-		cout << "Net recent average error: "
-		     << myNet.getRecentAverageError() << endl;
+		cout << "E" << epoch << " / ";
+		print_vector(inputs);
+		cout << " > ";
+		cout << setprecision(4);
+		print_vector(results);
+		cout << setprecision(0);
+		cout << " (targets ";
+		print_vector(targets);
+		cout << "), (error ";
+		cout << ")" << endl;
 	}
-
-	cout << endl << "Done" << endl;
 }

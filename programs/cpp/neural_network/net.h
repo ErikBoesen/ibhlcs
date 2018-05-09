@@ -166,8 +166,8 @@ void Net::backProp(const std::vector<double> &targetVals) {
 	// Calculate gradients on hidden layers
 
 	for (unsigned layerNum = this->layers.size() - 2; layerNum > 0; --layerNum) {
-		Layer &hiddenLayer = this->layers[layerNum];
-		Layer &nextLayer = this->layers[layerNum + 1];
+		Layer hiddenLayer = this->layers[layerNum];
+		Layer nextLayer = this->layers[layerNum + 1];
 
 		for (unsigned n = 0; n < hiddenLayer.size(); ++n) {
 			hiddenLayer[n].calcHiddenGradients(nextLayer);
