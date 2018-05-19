@@ -32,16 +32,16 @@ int main(int argc, char *argv[]) {
     serv_addr.sin_port = htons(PORT);
     if ((connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr))) < 0) {
         std::cout << "Failed connecting" << std::endl;
+        exit(1);
     }
     char c;
     while (1) {
-        std::cout << "Enter a letter: " << std::endl;
+        std::cout << "Enter a letter: ";
         bzero(buffer, BUFFER);
-        c = std::cin.get();
-        buffer[0] = c;
+        buffer[0] = std::cin.get();
         write(sockfd, buffer, BUFFER);
         bzero(buffer, BUFFER);
         read(sockfd, buffer, BUFFER);
-        std::cout << buffer << std::endl;
+        printf("%d\n", *buffer);
     }
 }

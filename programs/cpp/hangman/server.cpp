@@ -29,12 +29,13 @@ int main(int argc, char *argv[]) {
     clilen = sizeof(cli_addr);
     newsockfd = accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
     int chances = CHANCES;
+    char response[BUFFER];
     while (chances > 0) {
         bzero(buffer, BUFFER);
         read(newsockfd, buffer, BUFFER);
         std::cout << "Message: " << buffer << std::endl;
-        char response[] = "Message received";
-        write(newsockfd, response, sizeof(response));
+        response[0] = chances;
+        write(newsockfd, response, BUFFER);
         chances--;
     }
     close(newsockfd);
