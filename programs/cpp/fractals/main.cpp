@@ -16,11 +16,11 @@
 
 using namespace Magick;
 
-int mandelbrot(std::complex<int> c) {
-    int z = 0,
-        n = 0;
+int mandelbrot(std::complex<double> c) {
+    std::complex<double> z(0.0, 0.0);
+    int n = 0;
     while (abs(z) <= 2 && n < MAX_ITER) {
-        z = z*z + c.real();
+        z = z*z + c;
         n += 1;
     }
     return n;
@@ -40,10 +40,11 @@ int main(int argc, char *argv[]) {
             std::cout << "x = " << x << " (out of " << WIDTH << ")" << std::endl;
         }
         for (int y = 0; y < HEIGHT; y++) {
-            std::complex<int> c(RE_START + (x / WIDTH) * (RE_END - RE_START),
+            std::complex<double> c(RE_START + (x / WIDTH) * (RE_END - RE_START),
                                 IM_START + (y / HEIGHT) * (IM_END - IM_START));
 
             int m = mandelbrot(c);
+            std::cout << m << std::endl;
 
             int hue = 255 * m / MAX_ITER,
                 saturation = 200,
