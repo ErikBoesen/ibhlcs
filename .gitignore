@@ -127,3 +127,5 @@ ENV/
 hs_err_pid*
 .idea/
 out/
+
+.DS_Store
