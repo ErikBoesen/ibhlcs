@@ -2,14 +2,14 @@ from PIL import Image, ImageDraw
 from math import log, log2
 
 SCALE = 2
-WIDTH = 3*10**SCALE
+WIDTH = 2*10**SCALE
 HEIGHT = 2*10**SCALE
 
 # Plot window
 RE_START = -2
 RE_END = 1
-IM_START = -1
-IM_END = 1
+IM_START = -1.5
+IM_END = 1.5
 
 im = Image.new('HSV', (WIDTH, HEIGHT), (0, 0, 0))
 draw = ImageDraw.Draw(im)
