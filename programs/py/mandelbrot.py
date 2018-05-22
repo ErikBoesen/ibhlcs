@@ -1,9 +1,9 @@
 from PIL import Image, ImageDraw
 from math import log, log2
 
-SCALE = 2
-WIDTH = 2*10**SCALE
-HEIGHT = 2*10**SCALE
+SCALE = 800
+WIDTH = SCALE
+HEIGHT = SCALE
 
 # Plot window
 RE_START = -2
@@ -34,9 +34,9 @@ for x in range(0, WIDTH):
         # Compute the number of iterations
         m = mandelbrot(c)
         # The color depends on the number of iterations
-        hue = int(255 * m / MAX_ITER)
-        saturation = 200
-        value = 255 if m < MAX_ITER else 0
+        hue = 140 if m < MAX_ITER else 0
+        saturation = 255
+        value = int(255 * m / MAX_ITER) if m < MAX_ITER else 0
         # Plot the point
         draw.point([x, y], (hue, saturation, value))
         draw.point([x, HEIGHT - y], (hue, saturation, value))
