@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw
 from math import log, log2
+import sys
 
 SCALE = 800
 WIDTH = SCALE
@@ -26,7 +27,8 @@ def mandelbrot(c):
 
 for x in range(0, WIDTH):
     if x % 10 == 0:
-        print('x = %d (out of %d)' % (x, WIDTH))
+        print('x=%d/%d\r' % (x, WIDTH), end='')
+        sys.stdout.flush()
     for y in range(0, HEIGHT//2+1):
         # Convert pixel coordinate to complex number
         c = complex(RE_START + (x / WIDTH) * (RE_END - RE_START),
