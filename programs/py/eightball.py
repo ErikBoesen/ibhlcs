@@ -1,5 +1,5 @@
-import random
+ANSWERS = ['Yes', 'No', 'It is unlikely', 'Long shot']
 while True:
     q = input('Enter your question: ')
     total = sum([ord(c) for c in q])
-    random.choice(['Yes', 'No', 'It is unlikely', 'Long shot'])
+    print(ANSWERS[total % len(ANSWERS)])
