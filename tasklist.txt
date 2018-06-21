@@ -1,0 +1,5 @@
+Finish playbak
+Work with GANs
+Use Protocol Buffers for something
+Make website to redirect people based on the browser they're using
+
