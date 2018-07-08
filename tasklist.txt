@@ -1,5 +1,8 @@
+TaoDo (including Android, Web, CLI implementations)
 Finish playbak
 Work with GANs
 Use Protocol Buffers for something
-Make website to redirect people based on the browser they're using
-
+Website to redirect people based on the browser they're using
+Experiment with Qt (gitim)
+Mess with NFC and RFID
+Teach a program to play Snake with Neural Networks
