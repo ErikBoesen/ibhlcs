@@ -7,3 +7,4 @@ Experiment with Qt (gitim)
 Mess with NFC and RFID
 Teach a program to play Snake with Neural Networks
 Generate code with a Markov chain in different languages
+Analyze $HISTFILEs
