@@ -2,7 +2,9 @@ TaoDo (including Android, Web, CLI implementations)
 Finish playbak
 Responsive LEDs on longboard
 Work with GANs
+Make something neat with sockets in C (http://beej.us/guide/bgnet/html/single/bgnet.html)
 Use Protocol Buffers for something
+Try to use uucp
 Website to redirect people based on the browser they're using
 Experiment with Qt (gitim)
 Mess with NFC and RFID
