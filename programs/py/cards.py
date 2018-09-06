@@ -2,17 +2,16 @@ import random
 
 cards = list(range(2, 10+1))
 print(cards)
-choice = random.choice(cards)
-while cards:
+old = random.choice(cards)
+while len(cards) > 1:
+    cards.remove(old)
     new = random.choice(cards)
-    print(f'Card: {choice}')
-    print(f'New card: {new}')  # debug
+    print(f'Card: {old}')
     print(cards)
-    response = input(f'Is the next card less (<) or greater (>) than {choice}? ')
-    if response == '>' and new > choice or response == '<' and new < choice:
+    guess = input(f'Is the next card less (<) or greater (>) than {old}? ')
+    if guess == '>' and new > old or guess == '<' and new < old:
         print('Correct.')
-        choice = new
-        cards.remove(choice)
+        old = new
     else:
         print('Incorrect.')
         break
