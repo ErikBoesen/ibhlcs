@@ -1,6 +1,7 @@
 import random
 
 cards = list(range(2, 10+1))
+random.shuffle(cards)
 print(cards)
 old = random.choice(cards)
 while len(cards) > 1:
