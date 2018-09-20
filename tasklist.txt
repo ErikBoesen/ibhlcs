@@ -1,4 +1,3 @@
-TaoDo (including Android, Web, CLI implementations)
 Finish playbak
 Responsive LEDs on longboard
 Work with GANs
