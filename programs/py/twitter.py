@@ -14,4 +14,4 @@ auth.set_access_token(config["access_token"],
 api = tweepy.API(auth)
 
 for user in tweepy.Cursor(api.friends).items():
-    print(user.profile_link_color)
+    print("%s / %s" % (user.name, user.screen_name))
