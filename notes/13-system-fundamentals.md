@@ -26,3 +26,7 @@
 * Peripheral: piece of hardware which is optional and expands capabilities of computer
 * Network: two or more computers which are linked in order to share resources and exchange files/data
 * Human resources: people needed to set up, run, and maintain a computer system (IT people)
+* Methods of data collection:
+    * Surveys: gather lots of data, quickly and inexpensively. However, you cannot gather detailed data (low response depth) and number of responses are limited.
+    * Interviews: gather very deep data, with opportunity for users to elaborate upon specific qualms. Very personal information. However, it is time consuming and there is potential for personal bias.
+    * Direct observation: you get to see how the users actually use the software, not how they think they do. However, Hawthorne Effect (change in behavior because users know they are being observed) may occur.
