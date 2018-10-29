@@ -1,4 +1,3 @@
-
 OS - MacOS, Windows, GNU/Linux
 * Purposes of OS:
     * Provide a UI
@@ -18,8 +17,3 @@ OS - MacOS, Windows, GNU/Linux
     * Multitasking
         * Allocate time and priority to multiple processes
 * BiOS - Basic Input/Output System
-
-
-```python
-
-```
