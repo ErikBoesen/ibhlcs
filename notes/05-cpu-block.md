@@ -1,4 +1,3 @@
-
 # CPU block (called Motherboard outside IB)
 * Wires - "busses"
     * Address & data
@@ -11,5 +10,7 @@
 * CPU memory: Registers
     * Memory address (MAR)
     * Memory data (MDR)
+* Secondary Memory/Persistent Memory
+    * HDD, SSD, tapes, USB drive, rewritable DVD, etc.
 $ --> $$$: HDD, SSD, RAM, ROM, Cache, Registers
 Also slowest --> fastest.

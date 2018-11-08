@@ -1,4 +1,3 @@
-
 ## Machine Instruction Cycle (Von Neumann Architecture)
 * Fetch instruction
 * Decode instruction

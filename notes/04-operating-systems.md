@@ -17,3 +17,8 @@ OS - MacOS, Windows, GNU/Linux
     * Multitasking
         * Allocate time and priority to multiple processes
 * BiOS - Basic Input/Output System
+* Applications:
+    * Spread sheet
+    * Word processor/text editor
+    * Web browser
+    * CAD
