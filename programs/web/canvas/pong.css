@@ -6,10 +6,9 @@
 html, body { height: 100%; }
 body {
     background: #222;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 #canv {
     background: #333;
+    width: 100vw;
+    height: 100vh;
 }
