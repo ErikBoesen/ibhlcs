@@ -14,3 +14,11 @@
     * HDD, SSD, tapes, USB drive, rewritable DVD, etc.
 $ --> $$$: HDD, SSD, RAM, ROM, Cache, Registers
 Also slowest --> fastest.
+* Processor contains:
+    * Registers
+        * Data register: holds data memory
+        * Instruction register: holds instruction code
+        * Address register: holds the address
+    * Accumulator: processor register
+    * Program counter: holds the address of current instruction
+    * ALU: Arithmetic Logic Unit
