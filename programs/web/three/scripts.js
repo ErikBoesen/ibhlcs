@@ -13,7 +13,10 @@ const container = document.querySelector('#three');
 
 // Create a WebGL renderer, camera
 // and a scene
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({
+    //alpha: true,
+    antialias: true,
+});
 const camera =
     new THREE.PerspectiveCamera(
         VIEW_ANGLE,
@@ -75,6 +78,15 @@ pointLight.position.z = 130;
 
 // add to the scene
 scene.add(pointLight);
+
+controls = new THREE.TrackballControls( camera );
+controls.rotateSpeed = 5.0;
+controls.zoomSpeed = 3.2;
+controls.panSpeed = 0.8;
+controls.noZoom = false;
+controls.noPan = true;
+controls.staticMoving = false;
+controls.dynamicDampingFactor = 0.2;
 
 function animate() {
   // Schedule the next frame.
