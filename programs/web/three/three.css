@@ -1,17 +1,11 @@
-html, body { height: 100%; }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #222;
 }
 #three {
-    width: 400px;
-    height: 300px;
-    background-color: #333;
+    height: 100vh;
 }
