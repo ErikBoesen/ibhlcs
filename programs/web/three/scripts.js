@@ -41,31 +41,13 @@ const RADIUS = 50;
 const SEGMENTS = 16;
 const RINGS = 16;
 
-// create the sphere's material
-const sphereMaterial =
-  new THREE.MeshLambertMaterial(
-    {
-      color: 0xCC0000
-    });
+var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var material = new THREE.MeshNormalMaterial();
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
 
-// Create a new mesh with
-// sphere geometry - we will cover
-// the sphereMaterial next!
-const sphere = new THREE.Mesh(
 
-  new THREE.SphereGeometry(
-    RADIUS,
-    SEGMENTS,
-    RINGS),
-
-  sphereMaterial);
-
-// Move the Sphere back in Z so we
-// can see it.
-sphere.position.z = -300;
-
-// Finally, add the sphere to the scene.
-scene.add(sphere);
+camera.position.z = 2;
 
 // create a point light
 const pointLight =
@@ -79,18 +61,17 @@ pointLight.position.z = 130;
 // add to the scene
 scene.add(pointLight);
 
-controls = new THREE.TrackballControls( camera );
-controls.rotateSpeed = 5.0;
-controls.zoomSpeed = 3.2;
-controls.panSpeed = 0.8;
-controls.noZoom = false;
-controls.noPan = true;
-controls.staticMoving = false;
-controls.dynamicDampingFactor = 0.2;
-
+var cubeDirection = 1;
 function animate() {
   // Schedule the next frame.
   requestAnimationFrame(animate);
+
+  cube.rotation.x += 0.1;
+  cube.rotation.y += 0.1;
+  if (cube.position.z > 0 || cube.position.z < -20)
+    cubeDirection *= -1;
+  cube.position.z += cubeDirection * 0.1;
+  console.log(cube.position.z);
 
   // Draw!
   renderer.render(scene, camera);
