@@ -37,14 +37,36 @@ renderer.setSize(WIDTH, HEIGHT);
 // DOM element.
 container.appendChild(renderer.domElement);
 
-const RADIUS = 50;
-const SEGMENTS = 16;
-const RINGS = 16;
+// instantiate a loader
+var loader = new THREE.OBJLoader();
 
+// load a resource
+loader.load(
+	// resource URL
+	'skull.obj',
+	// called when resource is loaded
+	function ( object ) {
+
+		scene.add( object );
+
+	},
+	// called when loading is in progresses
+	function ( xhr ) {
+
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened' );
+
+	}
+);
 var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 var material = new THREE.MeshNormalMaterial();
-var cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+var obj = new THREE.Mesh( geometry, material );
+scene.add( obj );
 
 
 camera.position.z = 2;
@@ -61,17 +83,17 @@ pointLight.position.z = 130;
 // add to the scene
 scene.add(pointLight);
 
-var cubeDirection = 1;
+var objDirection = 1;
 function animate() {
   // Schedule the next frame.
   requestAnimationFrame(animate);
 
-  cube.rotation.x += 0.1;
-  cube.rotation.y += 0.1;
-  if (cube.position.z > 0 || cube.position.z < -20)
-    cubeDirection *= -1;
-  cube.position.z += cubeDirection * 0.1;
-  console.log(cube.position.z);
+  obj.rotation.x += 0.1;
+  obj.rotation.y += 0.1;
+  if (obj.position.z > 0 || obj.position.z < -20)
+    objDirection *= -1;
+  obj.position.z += objDirection * 0.1;
+  console.log(obj.position.z);
 
   // Draw!
   renderer.render(scene, camera);
