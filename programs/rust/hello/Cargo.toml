@@ -1,0 +1,6 @@
+[project]
+name = "hello"
+version = "0.1.0"
+authors = ["Erik Boesen <me@erikboesen.com>"]
+
+[dependencies]
