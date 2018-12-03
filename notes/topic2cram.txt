@@ -1,0 +1,34 @@
+Parts of CPU:
+Types of memory: fastest -> slowest
+- Registers: the CPU's memory
+- Cache: main memory on or near CPU which is used for data which must be held in memory very briefly. Primary memory.
+- RAM: volatile main memory
+- ROM: BIOS (Basic Input/Output System), main memory, non-volatile
+- Secondary memory: SSD/HDD
+
+Registers:
+- Data: holds data memory
+- Instruction: holds instruction code
+- Address: holds address
+- Accumulator: processor register
+- Program Counter: holds address of current instruction
+
+Machine Instruction Cycle:
+Fetch, Decode, Execute, Store
+
+~(A + ~B) = ~A * B
+~(A * ~B) = ~A + B
+
+Operating Systems:
+* Provide basic security
+* Manage peripherals
+
+* UI
+* Manage memory
+* Peripherals
+
+Types of applications:
+* Spreadsheet
+* Word processor/text editor
+* Web browser
+* CAD
