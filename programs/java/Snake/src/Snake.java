@@ -14,12 +14,12 @@ public class Snake {
         }
     }
     public void move() {
-        this.seg.get(0).x += this.sX;
-        this.seg.get(0).y += this.sY;
         for (int i = this.seg.size() - 1; i > 0; i--) {
             this.seg.get(i).x = this.seg.get(i-1).x;
             this.seg.get(i).y = this.seg.get(i-1).y;
         }
+        this.seg.get(0).x += this.sX;
+        this.seg.get(0).y += this.sY;
     }
     public void grow() {
         Segment prev = this.seg.get(this.seg.size() - 1);
