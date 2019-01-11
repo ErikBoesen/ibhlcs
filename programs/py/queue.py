@@ -1,5 +1,3 @@
-
-
 class Queue:
     items = []
     def __len__(self):
