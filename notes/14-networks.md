@@ -58,4 +58,14 @@
     * Wireless Access Point (WAP): required for wireless connection. Usually built into router.
     * MAC address: hardcoded (can be changed during runtime). Unique. 48 bits -> 12 hexadecimal digits.
     * NIC (Network Interface Card): enable laptops and desktops to connect to network. Small circuit boards that connect to the motherboard. Smartphones also use a GSM chip to connect to telephone network.
-
+* Networking models:
+    * Client-Server model
+        * "Client side" means the front end
+    * P2P/Peer-to-Peer
+        * No single provider is responsible for being the server. Each computer stores files and acts as a server, sending sections of a file, etc. Ideal for sharing files, but wouldn't work well for things like booking tickets, where one server needs to keep a record of how many tickets have been sold.
+* Types of servers
+    * Web servers: host websites and handle requests for *STATIC* information like HTML pages or images. Manage the website on a server, typically include FTP software to host and share large files. Apache is a popular web server for this.
+    * Application servers: contain programming and scripts that are more complex than a static HTML page. May use MySQL or NoSQL databases to store data. Server is used to organize nd run the web application. Client sends requests to the web server, which sends requests to application server.
+    * Network Attached Storage (NAS): server dedicated to storing and sharing files. Useful for storing large files, like music/video, but not for storing websites.
+    * Print servers: make it easy for various devices to connect to a printer. Removes the need for devices to install printer driver software or connect to printer using cables.
+    * Mail server: store email messages, clients request messages from it.
