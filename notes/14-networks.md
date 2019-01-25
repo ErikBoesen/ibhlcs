@@ -69,3 +69,7 @@
     * Network Attached Storage (NAS): server dedicated to storing and sharing files. Useful for storing large files, like music/video, but not for storing websites.
     * Print servers: make it easy for various devices to connect to a printer. Removes the need for devices to install printer driver software or connect to printer using cables.
     * Mail server: store email messages, clients request messages from it.
+
+* Internet: a network of networks
+* Internet of Things: devices are connected to the internet like fridges and thermostats
+* MUST KNOW TYPES OF CORDS - in other notes
