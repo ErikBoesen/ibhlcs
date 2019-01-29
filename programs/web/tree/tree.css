@@ -9,5 +9,8 @@ body {
 }
 #canv {
     background: #333;
-
+}
+#controls {
+    position: fixed;
+    top: 0;
 }
