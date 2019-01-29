@@ -12,29 +12,36 @@ var options = {
     middleLengthMultiplier: {
         default: .5,
         min: 0,
-        max: 0,
+        max: 1,
     },
+
 };
 
 const CONTROLS = document.getElementById('controls');
 
 for (option in options) {
+    control = document.createElement('div');
+    control.className = 'control';
     slider = document.createElement('input');
-    options[option].readout = document.createElement('label');
+    readout = document.createElement('label');
     slider.type = 'range';
     slider.min = options[option].min;
     slider.max = options[option].max;
     slider.value = options[option].default;
     slider.id = option;
     slider.step = 0.01;
+    readout.textContent = options[option].default;
     options[option].value = options[option].default;
     options[option].slider = slider;
-    CONTROLS.appendChild(slider);
+    options[option].readout = readout;
+    control.appendChild(slider);
+    control.appendChild(readout);
+    CONTROLS.appendChild(control);
 }
 
 ctx.strokeStyle = 'white';
 function random() {
-    return (Math.random() - 0.5) / 8;
+    return (Math.random() - 0.5) / 80;
 }
 var height = window.innerHeight;
 function drawBranch(iterations, length, startX, startY, angle) {
@@ -52,14 +59,23 @@ function drawBranch(iterations, length, startX, startY, angle) {
 function startTree() {
     ctx.beginPath();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.moveTo(window.innerWidth / 2, 0);
-    ctx.lineTo(window.innerWidth + 100, 0);
-    drawBranch(8, 100, window.innerWidth / 2, 0, Math.PI / 2);
+    ctx.moveTo(canvas.width / 2, canvas.height);
+    ctx.lineTo(canvas.width / 2, canvas.height - 100);
+    drawBranch(8, 100, canvas.width / 2, 100, Math.PI / 2);
     ctx.stroke();
 }
 
 oninput = function(e) {
     options[e.target.id].value = e.target.value;
+    options[e.target.id].readout.textContent = e.target.value;
     startTree();
-}
+};
+
 startTree();
+
+/*
+options['sideLengthMultiplier'].value = 0.01;
+setInterval(function() {
+    options['sideLengthMultiplier'].value += 0.001;
+    startTree();
+}, 50);*/
