@@ -26,7 +26,7 @@ for (option in options) {
     slider.max = options[option].max;
     slider.value = options[option].default;
     slider.id = option;
-    slider.step = 0.05;
+    slider.step = 0.01;
     options[option].value = options[option].default;
     options[option].slider = slider;
     CONTROLS.appendChild(slider);
@@ -34,7 +34,7 @@ for (option in options) {
 
 ctx.strokeStyle = 'white';
 function random() {
-    return Math.random() / 8;
+    return (Math.random() - 0.5) / 8;
 }
 var height = window.innerHeight;
 function drawBranch(iterations, length, startX, startY, angle) {
@@ -43,21 +43,23 @@ function drawBranch(iterations, length, startX, startY, angle) {
     var endY = startY + Math.sin(angle) * length;
     ctx.lineTo(endX, height - endY);
     if (iterations > 0) {
-        drawBranch(iterations - 1, length * options.sideLengthMultiplier.value, endX, endY, angle - Math.PI / 4 + random());
+        drawBranch(iterations - 1, length * options.sideLengthMultiplier.value, endX, endY, angle - Math.PI / 3 + random());
         drawBranch(iterations - 1, length * options.middleLengthMultiplier.value, endX, endY, angle + 0 + random());
-        drawBranch(iterations - 1, length * options.sideLengthMultiplier.value, endX, endY, angle + Math.PI / 4 + random());
+        drawBranch(iterations - 1, length * options.sideLengthMultiplier.value, endX, endY, angle + Math.PI / 3 + random());
     }
 }
 
 function startTree() {
     ctx.beginPath();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.moveTo(window.innerWidth / 2, 0);
+    ctx.lineTo(window.innerWidth + 100, 0);
     drawBranch(8, 100, window.innerWidth / 2, 0, Math.PI / 2);
     ctx.stroke();
 }
 
-setInterval(startTree, 100);
-
 oninput = function(e) {
     options[e.target.id].value = e.target.value;
+    startTree();
 }
+startTree();
