@@ -3,12 +3,27 @@ canvas.height = window.innerHeight;
 canvas.width  = window.innerWidth;
 var ctx = canvas.getContext('2d');
 
-function drawBranch(length, startX, startY) {
-    /*
-     * @param angle: angle from top left in radians
-     */
-    ctx.moveTo(startX, startY);
-    ctx.lineTo(startX + length, startY);
+ctx.beginPath();
+ctx.strokeStyle = 'white';
+function random() {
+    return 0.2;
+    return Math.random() / 8;
+}
+var height = window.innerHeight;
+function drawBranch(iterations, length, startX, startY, angle) {
+    if (iterations == 0) return;
+    ctx.moveTo(startX, height - startY);
+    var endX = startX + Math.cos(angle) * length;
+    var endY = startY + Math.sin(angle) * length;
+    ctx.lineTo(endX, height - endY);
+    drawBranch(iterations - 1, length * .8, endX, endY, angle - Math.PI / 4 + random());
+    drawBranch(iterations - 1, length * .4, endX, endY, angle + 0 + random());
+    drawBranch(iterations - 1, length * .8, endX, endY, angle + Math.PI / 4 + random());
 }
 
-drawBranch(100, 0, 200);
+function startTree() {
+    drawBranch(8, 100, 500, 0, Math.PI / 2);
+}
+ctx.stroke();
+
+
