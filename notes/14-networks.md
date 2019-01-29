@@ -73,3 +73,15 @@
 * Internet: a network of networks
 * Internet of Things: devices are connected to the internet like fridges and thermostats
 * MUST KNOW TYPES OF CORDS - in other notes
+
+* TCP/IP (Transmission Control Protocol/Internet Protocol)
+    * Protocol: rules for how information is sent and formatted
+    * Set of protocols used over the internet, organizing how data packets are communicated and mkaking sure packaets have following info: source, destination, packet sequence, data, error check
+    * TCP/IP includes several key protocols:
+        * IP address: every device on the internet has a unique IP address, which is included in the data packet. 32 or 128 bit numbers. Address is broken down into four 8-bit numbers (each called an octet) which can represent numbers between 0 and 255 (inclusive) and is separated by a period.
+            * Home and small business routers often incorporate a basic DHCP (Dynamic Host Configuration Protocol) server which assigns IP addresses to devices on a network.
+            * 32-bit IP address system is also known as IPv4, allowing for over 4 billion unique addresses. IPv6 is coming into use now, which supports many more addresses.
+            * Each website has a URL (Uniform Resource Locator) with equivalent IP address. A web address contains http(s), domain name, area within the website (directory), and page name.
+            * Nameservers are used to host and match website addresses to IP addresses. DNS is the main system over the internet that uses the name server.
+        * Buffering
+            * A buffer is a temporary storage space where data can be held and processed, it holds data required to listen to or watch media. As data for a file is downloaded it is temporarily held in the buffer. As soon as enough data is in the buffer the file will start playing. When you see the warning sign "buffering" this means that the client is waiting for more data from the server.
