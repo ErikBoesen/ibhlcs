@@ -27,6 +27,7 @@ for (option in options) {
     slider.value = options[option].default;
     slider.id = option;
     slider.step = 0.05;
+    options[option].value = options[option].default;
     options[option].slider = slider;
     CONTROLS.appendChild(slider);
 }
@@ -50,13 +51,13 @@ function drawBranch(iterations, length, startX, startY, angle) {
 
 function startTree() {
     ctx.beginPath();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBranch(8, 100, window.innerWidth / 2, 0, Math.PI / 2);
     ctx.stroke();
 }
 
-setInterval(100, startTree());
+setInterval(startTree, 100);
 
 oninput = function(e) {
-    console.log(e.target);
     options[e.target.id].value = e.target.value;
 }
