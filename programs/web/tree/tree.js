@@ -14,7 +14,12 @@ var options = {
         min: 0,
         max: 1,
     },
-
+    iterations: {
+        default: 8,
+        min: 3,
+        max: 12,
+        step: 1,
+    }
 };
 
 const CONTROLS = document.getElementById('controls');
@@ -29,7 +34,7 @@ for (option in options) {
     slider.max = options[option].max;
     slider.value = options[option].default;
     slider.id = option;
-    slider.step = 0.01;
+    slider.step = options[option].step || 0.01;
     readout.textContent = options[option].default;
     options[option].value = options[option].default;
     options[option].slider = slider;
@@ -44,24 +49,27 @@ function random() {
     return (Math.random() - 0.5) / 80;
 }
 var height = window.innerHeight;
-function drawBranch(iterations, length, startX, startY, angle) {
+function drawBranch(iteration, length, startX, startY, angle) {
     ctx.moveTo(startX, height - startY);
     var endX = startX + Math.cos(angle) * length;
     var endY = startY + Math.sin(angle) * length;
     ctx.lineTo(endX, height - endY);
-    if (iterations > 0) {
-        drawBranch(iterations - 1, length * options.sideLengthMultiplier.value, endX, endY, angle - Math.PI / 3 + random());
-        drawBranch(iterations - 1, length * options.middleLengthMultiplier.value, endX, endY, angle + 0 + random());
-        drawBranch(iterations - 1, length * options.sideLengthMultiplier.value, endX, endY, angle + Math.PI / 3 + random());
+    if (iteration > 0) {
+        drawBranch(iteration - 1, length * options.sideLengthMultiplier.value, endX, endY, angle - Math.PI / 3 + random());
+        drawBranch(iteration - 1, length * options.middleLengthMultiplier.value, endX, endY, angle + 0 + random());
+        drawBranch(iteration - 1, length * options.sideLengthMultiplier.value, endX, endY, angle + Math.PI / 3 + random());
     }
 }
 
 function startTree() {
     ctx.beginPath();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw extra line at the bottom so that leaves don't touch the ground too quickly
     ctx.moveTo(canvas.width / 2, canvas.height);
     ctx.lineTo(canvas.width / 2, canvas.height - 100);
-    drawBranch(8, 100, canvas.width / 2, 100, Math.PI / 2);
+
+    drawBranch(options.iterations.value, 100, canvas.width / 2, 100, Math.PI / 2);
     ctx.stroke();
 }
 
