@@ -1,0 +1,3 @@
+* Linked list: has a head element, and every element has a pointer to the location in memory where the next element is. Last element has pointer to null, thus we know we're done. Doubly linked list also has the previous item so you can walk the list backward. This differs from a conventional list/array, where each element is stored sequentially. Each item is an object.
+    * Advantages: Can grow and shrink dynamically at runtime, limited only by the amount of physical memory available. Deletion/insertion is very fast.
+    * Disadvantages: random access is slow because you must pass through each item, unlike in a conventional array where you can find an element in O(1) time given a pointer to the starting of the array.
