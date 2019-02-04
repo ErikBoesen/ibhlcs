@@ -71,6 +71,8 @@
     * Mail server: store email messages, clients request messages from it.
 
 * Internet: a network of networks
+    * Web browser is typically used on a computer to access the internet. Handles downloading of pages and content, rendering them, etc.
+    * You need an ISP/Internet Service Provider (usually) to access the internet.
 * Internet of Things: devices are connected to the internet like fridges and thermostats
 * MUST KNOW TYPES OF CORDS - in other notes
 
@@ -85,3 +87,12 @@
             * Nameservers are used to host and match website addresses to IP addresses. DNS is the main system over the internet that uses the name server.
         * Buffering
             * A buffer is a temporary storage space where data can be held and processed, it holds data required to listen to or watch media. As data for a file is downloaded it is temporarily held in the buffer. As soon as enough data is in the buffer the file will start playing. When you see the warning sign "buffering" this means that the client is waiting for more data from the server.
+            * Handshaking: communication between two devices where the computers agree on the protocols that will be used for connection.
+* Network security
+    * Networking has lots of benefits but also security risks. By connecting computers you can share personal data easily, but they are more vulnerable to interference by others.
+    * Anyone sharing personal information like bank details needs to be sure they are safe/secure. Businesses and organizations employ _network managers_ or _administrators_ to manage their networks' security. There are many ways to go about defending against threats.
+    * Anti-virus software: detect and block attacks from malware. Some have inbuilt anti-virus software. In large organizations, computer should be ensured to have some sort of anti-virus so you can defend against malicious software ("malware") like viruses, worms, zombies, Trojans, and Spybots.
+    * Firewall: software that blocks unexpected connections into the network. Most OSes have firewalls. Problem with firewalls is you have to know the addresses. Firewalls can only block things that they know are bad, so maintaining this whitelist/blacklist makes things tough.
+    * Secure passwords: Important to have strong credentials. Can allow you to find hackers trying to break in. Good passwords have diverse characters.
+    * Access levels: in large companies or schools, many people will use computers on the same network, and will use different access levels. Prevents people from doing things that they shouldn't, and also prevents malware from having immediate total access to everything.
+    * Encryption: preventing data from being read if captured. Various ciphers and encryption algorithms are used for encryption.
