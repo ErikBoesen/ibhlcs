@@ -78,7 +78,7 @@
 
 * TCP/IP (Transmission Control Protocol/Internet Protocol)
     * Protocol: rules for how information is sent and formatted
-    * Set of protocols used over the internet, organizing how data packets are communicated and mkaking sure packaets have following info: source, destination, packet sequence, data, error check
+    * Set of protocols used over the internet, organizing how data packets are communicated and making sure packets have following info: source, destination, packet sequence, data, error check
     * TCP/IP includes several key protocols:
         * IP address: every device on the internet has a unique IP address, which is included in the data packet. 32 or 128 bit numbers. Address is broken down into four 8-bit numbers (each called an octet) which can represent numbers between 0 and 255 (inclusive) and is separated by a period.
             * Home and small business routers often incorporate a basic DHCP (Dynamic Host Configuration Protocol) server which assigns IP addresses to devices on a network.
