@@ -25,7 +25,7 @@ function tick() {
 function draw() {
     for (row = 0; row < RES; row++) {
         for (col = 0; col < RES; col++) {
-            ctx.fillStyle = 'rgb(255,' + 255/10 * grass[row][col] + '255)';
+            ctx.fillStyle = 'rgb(0,' + (255/10 * grass[row][col]) + ',0)';
             ctx.fillRect(col * SIZE, row * SIZE, SIZE, SIZE);
         }
     }
