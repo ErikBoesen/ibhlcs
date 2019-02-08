@@ -1,5 +1,5 @@
 let canvas = document.getElementById('canv');
-const SIZE = 3;
+const SIZE = 5;
 const WIDTH = Math.floor(window.innerWidth / SIZE);
 const HEIGHT = Math.floor(window.innerHeight / SIZE);
 const MAX_GRASS_GROWTH = 10;
