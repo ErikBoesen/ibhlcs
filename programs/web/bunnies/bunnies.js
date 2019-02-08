@@ -6,6 +6,7 @@ const GRASS_GROWTH_SPEED = 50;
 const STARTING_BUNNY_COUNT = 20;
 const BUNNY_PADDING = 3;
 const REPRODUCTION_COOLDOWN = 10;
+const MAX_TIME_WITHOUT_FOOD = 10;
 canvas.height = RES * SIZE;
 canvas.width  = RES * SIZE;
 let ctx = canvas.getContext('2d');
@@ -29,6 +30,7 @@ let bunnies = [];
 for (count = 0; count < STARTING_BUNNY_COUNT; count++) {
     bunnies.push({
         time_since_reproduction: REPRODUCTION_COOLDOWN,
+        time_since_ate: 0,
         x: random(),
         y: random(),
     });
@@ -36,13 +38,14 @@ for (count = 0; count < STARTING_BUNNY_COUNT; count++) {
 let wolves = [];
 
 function tick() {
+    // Restore grass
     for (square = 0; square < GRASS_GROWTH_SPEED; square++) {
         restore_x = random();
         restore_y = random();
         if (grass[restore_y][restore_x] < MAX_GRASS_GROWTH) grass[restore_y][restore_x] += 1
     }
+    // Reproduce bunnies
     var starting_bunny_count = bunnies.length;
-    console.log(starting_bunny_count);
     if (starting_bunny_count < RES * RES) {
         for (bunny = 0; bunny < starting_bunny_count; bunny++) {
             for (partner = 0; partner < starting_bunny_count; partner++) {
@@ -58,6 +61,7 @@ function tick() {
                     bunnies[partner].time_since_reproduction = 0;
                     bunnies.push({
                         time_since_reproduction: 0,
+                        time_since_ate: 0,
                         x: bunnies[bunny].x,
                         y: bunnies[bunny].y,
                     });
@@ -67,13 +71,23 @@ function tick() {
     }
     for (bunny of bunnies) {
         bunny.time_since_reproduction += 1;
-        if (grass[bunny.y][bunny.x] > 0) grass[bunny.y][bunny.x] -= 1;
+        bunny.time_since_ate += 1;
+        if (grass[bunny.y][bunny.x] > 0) {
+            grass[bunny.y][bunny.x] -= 1;
+            bunny.time_since_ate = 0;
+        }
         bunny.x += jump();
         bunny.y += jump();
         if (bunny.x < 0) bunny.x = 0;
         else if (bunny.x >= RES) bunny.x = RES - 1;
         if (bunny.y < 0) bunny.y = 0;
         else if (bunny.y >= RES) bunny.y = RES - 1;
+    }
+    for (bunny = bunnies.length - 1; bunny >= 0; bunny--) {
+        if (bunnies[bunny].time_since_ate > MAX_TIME_WITHOUT_FOOD) {
+            console.log('Killing bunny');
+            bunnies.splice(bunny, 1);
+        }
     }
 }
 function draw() {
