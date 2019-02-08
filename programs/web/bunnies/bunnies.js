@@ -34,7 +34,7 @@ let wolves = [];
 
 function tick() {
     for (bunny of bunnies) {
-        grass[bunny.y][bunny.x] -= 1;
+        if (grass[bunny.y][bunny.x] > 0) grass[bunny.y][bunny.x] -= 1;
         bunny.x += jump();
         bunny.y += jump();
         if (bunny.x < 0) bunny.x = 0;
@@ -61,4 +61,4 @@ function loop() {
 }
 
 loop();
-let main_loop = setInterval(loop, 1000);
+let main_loop = setInterval(loop, 100);
