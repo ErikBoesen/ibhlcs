@@ -6,7 +6,8 @@
 html, body { height: 100%; }
 body {
     background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: middle;
 }
-#canv {
-    background: #333;
-}
+#canv {}

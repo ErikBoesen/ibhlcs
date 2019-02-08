@@ -2,6 +2,7 @@ let canvas = document.getElementById('canv');
 const RES = 32;
 const SIZE = 20;
 const MAX_GRASS_GROWTH = 10;
+const GRASS_GROWTH_SPEED = 10;
 const STARTING_BUNNY_COUNT = 4;
 const BUNNY_PADDING = 3;
 canvas.height = RES * SIZE;
@@ -33,6 +34,10 @@ for (count = 0; count < STARTING_BUNNY_COUNT; count++) {
 let wolves = [];
 
 function tick() {
+    for (
+    restore_x = random();
+    restore_y = random();
+    if (grass[restore_y][restore_x] < MAX_GRASS_GROWTH) grass[restore_y][restore_x] += 1
     for (bunny of bunnies) {
         if (grass[bunny.y][bunny.x] > 0) grass[bunny.y][bunny.x] -= 1;
         bunny.x += jump();
