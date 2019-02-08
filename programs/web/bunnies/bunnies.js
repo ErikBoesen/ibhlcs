@@ -30,7 +30,9 @@ for (count = 0; count < STARTING_BUNNY_COUNT; count++) {
 let wolves = [];
 
 function tick() {
-
+    for (bunny of bunnies) {
+        grass[bunny.y][bunny.x] -= 1;
+    }
 }
 function draw() {
     for (row = 0; row < RES; row++) {
