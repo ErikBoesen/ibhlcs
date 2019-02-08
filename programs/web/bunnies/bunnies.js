@@ -17,6 +17,9 @@ for (row = 0; row < RES; row++) {
         grass[row].push(MAX_GRASS_GROWTH);
     }
 }
+function jump() {
+    return Math.floor(Math.random() * 3 - 1);
+}
 function random() {
     return Math.floor(Math.random() * RES);
 }
@@ -32,6 +35,12 @@ let wolves = [];
 function tick() {
     for (bunny of bunnies) {
         grass[bunny.y][bunny.x] -= 1;
+        bunny.x += jump();
+        bunny.y += jump();
+        if (bunny.x < 0) bunny.x = 0;
+        else if (bunny.x >= RES) bunny.x = RES - 1;
+        if (bunny.y < 0) bunny.y = 0;
+        else if (bunny.y >= RES) bunny.y = RES - 1;
     }
 }
 function draw() {
@@ -51,4 +60,5 @@ function loop() {
     draw();
 }
 
-let main_loop = setInterval(loop, 100);
+loop();
+let main_loop = setInterval(loop, 1000);
