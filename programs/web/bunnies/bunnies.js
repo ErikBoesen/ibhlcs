@@ -34,10 +34,11 @@ for (count = 0; count < STARTING_BUNNY_COUNT; count++) {
 let wolves = [];
 
 function tick() {
-    for (
-    restore_x = random();
-    restore_y = random();
-    if (grass[restore_y][restore_x] < MAX_GRASS_GROWTH) grass[restore_y][restore_x] += 1
+    for (square = 0; square < GRASS_GROWTH_SPEED; square++) {
+        restore_x = random();
+        restore_y = random();
+        if (grass[restore_y][restore_x] < MAX_GRASS_GROWTH) grass[restore_y][restore_x] += 1
+    }
     for (bunny of bunnies) {
         if (grass[bunny.y][bunny.x] > 0) grass[bunny.y][bunny.x] -= 1;
         bunny.x += jump();
