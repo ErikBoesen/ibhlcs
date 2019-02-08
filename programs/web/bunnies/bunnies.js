@@ -2,7 +2,7 @@ let canvas = document.getElementById('canv');
 const SIZE = 5;
 const WIDTH = Math.floor(window.innerWidth / SIZE);
 const HEIGHT = Math.floor(window.innerHeight / SIZE);
-const MAX_GRASS_GROWTH = 10;
+const MAX_GRASS_GROWTH = 20;
 const GRASS_GROWTH_SPEED = 400;
 const STARTING_BUNNY_COUNT = 20;
 const BUNNY_PADDING = 1;
@@ -97,7 +97,7 @@ function tick() {
 function draw() {
     for (row = 0; row < HEIGHT; row++) {
         for (col = 0; col < WIDTH; col++) {
-            ctx.fillStyle = 'rgb(0,' + (255/10 * grass[row][col]) + ',0)';
+            ctx.fillStyle = 'rgb(0,' + (255/MAX_GRASS_GROWTH * grass[row][col]) + ',0)';
             ctx.fillRect(col * SIZE, row * SIZE, SIZE, SIZE);
         }
     }
