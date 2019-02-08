@@ -41,7 +41,7 @@ function draw() {
     }
     ctx.fillStyle = '#333';
     for (bunny of bunnies) {
-        ctx.fillRect(col * SIZE + BUNNY_PADDING, row * SIZE + BUNNY_PADDING, SIZE - 2*BUNNY_PADDING, SIZE - 2*BUNNY_PADDING);
+        ctx.fillRect(bunny.x * SIZE + BUNNY_PADDING, bunny.y * SIZE + BUNNY_PADDING, SIZE - 2*BUNNY_PADDING, SIZE - 2*BUNNY_PADDING);
     }
 }
 function loop() {
