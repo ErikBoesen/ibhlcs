@@ -111,5 +111,14 @@ function loop() {
     draw();
 }
 
+canvas.onclick = function(e) {
+    bunnies.push({
+        time_since_ate: 0,
+        time_since_reproduction: REPRODUCTION_COOLDOWN,
+        x: Math.floor(e.clientX / SIZE),
+        y: Math.floor(e.clientY / SIZE),
+    });
+}
+
 loop();
-let main_loop = setInterval(loop, 100);
+let main_loop = setInterval(loop, 1);
