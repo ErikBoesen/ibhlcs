@@ -1,12 +1,12 @@
 let canvas = document.getElementById('canv');
-const RES = 32;
-const SIZE = 20;
+const SIZE = 3;
+const RES = Math.floor(window.innerHeight / SIZE)
 const MAX_GRASS_GROWTH = 10;
-const GRASS_GROWTH_SPEED = 50;
+const GRASS_GROWTH_SPEED = 400;
 const STARTING_BUNNY_COUNT = 20;
-const BUNNY_PADDING = 3;
+const BUNNY_PADDING = 1;
 const REPRODUCTION_COOLDOWN = 10;
-const MAX_TIME_WITHOUT_FOOD = 10;
+const MAX_TIME_WITHOUT_FOOD = 3;
 canvas.height = RES * SIZE;
 canvas.width  = RES * SIZE;
 let ctx = canvas.getContext('2d');
