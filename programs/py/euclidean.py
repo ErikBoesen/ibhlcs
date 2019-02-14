@@ -1,10 +1,6 @@
-import sys
-
 def euclid(a, b):
-    multiplier = 0
-    while (multiplier + 1) * b <= a:
-        multiplier += 1
-    r = a - multiplier * b
+    r = a % b
+    multiplier = (a - r) // b
     print(f'{a} = {b} * {multiplier} + {r}')
     if r != 0:
         euclid(b, r)
