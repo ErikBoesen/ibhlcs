@@ -1,23 +1,36 @@
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
 
 class Frog {
 private:
-    int maxHop;
-    int end;
     int distance;
-    int hop;
-    bool simulate;
+    int maxHops;
+    int maxHopLength;
 public:
-    Frog(int distance, int maxHop) {
-        this.distance = distance;
-        this.maxHop = maxHop;
+    Frog(int distance, int maxHops, int maxHopLength) {
+        this->distance = distance;
+        this->maxHops = maxHops;
+        this->maxHopLength = maxHopLength;
     };
-    double runSimulation(int amount) {
-    }
-}
+    double simulate(int iterations) {
+        int successes = 0;
+        for (int iteration = 0; iteration < iterations; iteration++) {
+            int traveled = 0;
+            for (int i = 0; i < this->maxHops; i++) {
+                traveled += rand() % this->maxHopLength;
+            }
+            if (traveled >= this->distance) {
+                successes++;
+            }
+        }
+        return (double)successes / iterations;
+    };
+};
 
 int main() {
-    Frog frog = new Frog(20, 5);
-
+    srand(time(NULL));
+    Frog frog(20, 5, 10);
+    std::cout << frog.simulate(50) << std::endl;
 }
