@@ -96,3 +96,8 @@
     * Secure passwords: Important to have strong credentials. Can allow you to find hackers trying to break in. Good passwords have diverse characters.
     * Access levels: in large companies or schools, many people will use computers on the same network, and will use different access levels. Prevents people from doing things that they shouldn't, and also prevents malware from having immediate total access to everything.
     * Encryption: preventing data from being read if captured. Various ciphers and encryption algorithms are used for encryption.
+
+Makeup of data packet: source address, target address, protocol, data.
+Packet switching: useful because it's faster
+Speed variance and slowdown occurs because of traffic, infrastructure, environmental issues
+Types of compression: Lossy and Lossless
