@@ -23,8 +23,10 @@ public class BookDriver {
             requestedTitle = kb.nextLine();
             if (books.containsKey(requestedTitle)) {
                 Book book = books.get(requestedTitle);
-                if (book.getAvailability()) System.out.println("That book is available!");
-                else System.out.println("That book is currently checked out.");
+                if (book.getAvailability()) {
+                    book.setAvailability(false);
+                    System.out.println("That book is available! It has been checked out for you.");
+                } else System.out.println("That book is currently checked out.");
             } else {
                 System.out.println("Sorry, we don't have that book.");
             }
