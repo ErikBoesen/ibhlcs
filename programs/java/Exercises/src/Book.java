@@ -1,10 +1,12 @@
-public class Average {
+public class Book {
+    String title;
+    double fine;
+    boolean availability;
     public Book(String title, double fine, boolean availability) {
         this.setTitle(title);
         this.setFine(fine);
         this.setAvailability(availability);
     }
-    public Book() {}
     public double getFine() { return this.fine; }
     public void setFine(double fine) { this.fine = fine; }
     public String getTitle() { return this.title; }
