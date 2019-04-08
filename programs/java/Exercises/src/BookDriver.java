@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.HashMap;
 
 public class BookDriver {
     public static void main(String[] args) {
@@ -15,14 +16,19 @@ public class BookDriver {
         boolean availability = Character.toLowerCase(kb.next().charAt(0)) == 'y';
         books.put(title, new Book(fine, availability));
 
+        String requestedTitle;
+        kb.nextLine();
         while (true) {
-            System.out.print("What book would you like to check out?");
-            String title = kb.nextLine();
-            if (books.containsKey(title)) {
-                
+            System.out.print("What book would you like to check out? ");
+            requestedTitle = kb.nextLine();
+            if (books.containsKey(requestedTitle)) {
+                Book book = books.get(requestedTitle);
+                if (book.getAvailability()) System.out.println("That book is available!");
+                else System.out.println("That book is currently checked out.");
             } else {
                 System.out.println("Sorry, we don't have that book.");
             }
+            System.out.println();
         }
     }
 }
