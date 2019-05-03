@@ -2,18 +2,13 @@ import random
 from termcolor import colored
 
 NUM_DOORS = 3
-CAR = True
-ZONK = False
 OPEN = True
 CLOSED = False
 
 
 class Hall:
-
     def __init__(self):
-        self.contents = [ZONK] * NUM_DOORS
         self.car_position = self.random_door()
-        self.contents[self.car_position] = CAR
         self.statuses = [CLOSED] * NUM_DOORS
 
     def random_door(self) -> int:
@@ -24,7 +19,7 @@ class Hall:
 
     def open_zonk(self):
         for door in range(NUM_DOORS):
-            if door != self.guess and self.contents[door] != CAR:
+            if door != self.guess and door != self.car_position:
                 self.statuses[door] = OPEN
                 break
 
