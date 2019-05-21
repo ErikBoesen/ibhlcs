@@ -1,4 +1,3 @@
-
 # ADDIM
 * **Analysis:** What is the problem? Client? Definition of success?
 * **Design:** Develop Prototype

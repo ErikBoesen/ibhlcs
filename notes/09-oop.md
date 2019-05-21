@@ -16,4 +16,4 @@ Types of methods:
 * `void` method
 * Constructor method
 
-Overloading: the action of defining multiple methods with the same name but different parameters.
+Overloading or polymorphism: the action of defining multiple methods with the same name but different parameters.
